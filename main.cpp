@@ -236,6 +236,56 @@ void ShakerOptSort(std::vector<int>& data)
     }    
 }
 
+void SelectionSort(std::vector<int>& data)
+{
+    for (size_t i = 0; i < data.size(); i++)
+    {
+        size_t min_index = i;
+
+        for (size_t j = i; j < data.size(); j++)
+        {
+            if (data[j] < data[min_index])
+            {
+                min_index = j;
+            }
+        }
+
+        std::swap(data[i], data[min_index]);
+    }
+}
+
+void SelectionOptSort(std::vector<int>& data)
+{
+    size_t begin_index {0};
+    size_t end_index {data.size() - 1};
+
+    while (begin_index < end_index)   
+    {
+        size_t min_index {begin_index};
+        size_t max_index {end_index};
+
+        for (size_t i = begin_index; i <= end_index; i++)
+        {
+            if (data[i] < data[min_index])
+                min_index = i;
+
+            if (data[i] > data[max_index])
+                max_index = i;
+        }
+
+        if (begin_index != min_index)
+            std::swap(data[begin_index], data[min_index]);
+
+        if (max_index == begin_index)
+            max_index = min_index;
+
+        std::swap(data[end_index], data[max_index]);
+
+        begin_index++;
+        end_index--;
+    }
+}
+
 void Sorts()
 {
     std::vector<int> data {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
@@ -249,6 +299,12 @@ void Sorts()
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     ShakerOptSort(data);
+
+    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    SelectionSort(data);
+
+    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    SelectionOptSort(data);
 
     if (!std::is_sorted(data.begin(), data.end()))
         throw std::exception();
