@@ -140,12 +140,18 @@ void Algorithms()
     } while (false);    
 }
 
+void Sorts()
+{
+    std::vector<int> data {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+}
+
 int main()
 {
     std::setlocale(LC_ALL, "");
 
     Containers();
     Algorithms();
+    Sorts();
 
     return 0;
 }
