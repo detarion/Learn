@@ -196,6 +196,46 @@ void ShakerSort(std::vector<int>& data)
     }    
 }
 
+void ShakerOptSort(std::vector<int>& data)
+{
+    size_t begin_index{0};
+    size_t end_index{data.size()};
+
+    for (size_t i = begin_index; i + 1 < end_index; i++)
+    {
+        bool is_sort {true};
+
+        for (size_t j = begin_index; j + 1 < end_index; j++)
+        {
+            if (data[j] > data[j+1])
+            {
+                std::swap(data[j], data[j+1]);
+                is_sort = false;
+            }
+        }
+
+        if (is_sort)
+            break;
+
+        is_sort = true;
+        end_index--;
+
+        for (size_t j = end_index - 1; j > begin_index; j--)
+        {
+            if (data[j-1] > data[j])
+            {
+                std::swap(data[j-1], data[j]);
+                is_sort = false;
+            }
+        }
+
+        if (is_sort)
+            break;
+        
+        begin_index++;
+    }    
+}
+
 void Sorts()
 {
     std::vector<int> data {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
@@ -206,6 +246,9 @@ void Sorts()
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     ShakerSort(data);
+
+    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    ShakerOptSort(data);
 
     if (!std::is_sorted(data.begin(), data.end()))
         throw std::exception();
