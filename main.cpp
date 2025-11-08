@@ -305,13 +305,16 @@ void InsertionOptSort(std::vector<int>& data)
 {
     for (size_t i = 1; i < data.size(); i++)
     {
-        size_t index = i - 1;
+        int key = data[i];
+        int index = static_cast<int>(i - 1);
 
-        while (index >= 0 && data[index] > data[i])
+        while (index >= 0 && data[index] > key)
         {
             data[index+1] = data[index];
             index--;
         }
+
+        data[index + 1] = key;
     }
 }
 
@@ -337,7 +340,8 @@ void Sorts()
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     InsertionOptSort(data);
 
-    if (!std::is_sorted(data.begin(), data.end()))
+    std::vector<int> sort_data = {3, 11, 12, 22, 25, 34, 49, 64, 73, 90};
+    if (data != sort_data)
         throw std::exception();
 }
 
