@@ -174,6 +174,28 @@ void BubbleOptSort(std::vector<int>& data)
     }
 }
 
+void ShakerSort(std::vector<int>& data)
+{
+    for (size_t i = 0; i < data.size(); i++)
+    {
+        for (size_t j = 0; j < data.size() - 1; j++)
+        {
+            if (data[j] > data[j+1])
+            {
+                std::swap(data[j], data[j+1]);
+            }
+        }
+
+        for (size_t j = data.size() - 1; j > 0; j--)
+        {
+            if (data[j-1] > data[j])
+            {
+                std::swap(data[j-1], data[j]);
+            }
+        }
+    }    
+}
+
 void Sorts()
 {
     std::vector<int> data {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
@@ -181,6 +203,9 @@ void Sorts()
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     BubbleOptSort(data);
+
+    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    ShakerSort(data);
 
     if (!std::is_sorted(data.begin(), data.end()))
         throw std::exception();
