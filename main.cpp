@@ -140,12 +140,33 @@ void Algorithms()
     } while (false);    
 }
 
+void BubbleSort(std::vector<int>& data)
+{
+    for (size_t i = 0; i < data.size(); i++)
+    {
+        for (size_t j = 0; j < data.size() - 1 - i; j++)
+        {
+            if (data[j] > data[j+1])
+            {
+                std::swap(data[j], data[j+1]);
+            }            
+        }
+    }
+}
+
+void Sorts()
+{
+    std::vector<int> data {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    BubbleSort(data);    
+}
+
 int main()
 {
     std::setlocale(LC_ALL, "");
 
     Containers();
     Algorithms();
+    Sorts();
 
     return 0;
 }
