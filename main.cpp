@@ -140,9 +140,50 @@ void Algorithms()
     } while (false);    
 }
 
+void BubbleSort(std::vector<int>& data)
+{
+    for (size_t i = 0; i < data.size(); i++)
+    {
+        for (size_t j = 0; j < data.size() - 1 - i; j++)
+        {
+            if (data[j] > data[j+1])
+            {
+                std::swap(data[j], data[j+1]);
+            }            
+        }
+    }
+}
+
+void BubbleOptSort(std::vector<int>& data)
+{
+    for (size_t i = 0; i < data.size(); i++)
+    {
+        bool is_sort {true};
+
+        for (size_t j = 0; j < data.size() - 1 - i; j++)
+        {
+            if (data[j] > data[j+1])
+            {
+                std::swap(data[j], data[j+1]);
+                is_sort = false;
+            }
+        }
+
+        if (is_sort)
+            break;
+    }
+}
+
 void Sorts()
 {
     std::vector<int> data {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    BubbleSort(data);
+
+    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    BubbleOptSort(data);
+
+    if (!std::is_sorted(data.begin(), data.end()))
+        throw std::exception();
 }
 
 int main()
