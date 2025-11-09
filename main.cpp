@@ -335,6 +335,12 @@ void MergeSort(std::vector<int>& data)
     std::merge(left_data.begin(), left_data.end(), right_data.begin(), right_data.end(), std::back_inserter(data));
 }
 
+void HeapSort(std::vector<int>& data)
+{
+    std::make_heap(data.begin(), data.end());
+    std::sort_heap(data.begin(), data.end());
+}
+
 void Sorts()
 {
     std::vector<int> data {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
@@ -361,6 +367,9 @@ void Sorts()
     MergeSort(data);
     //data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     //MergeOptSort(data);
+
+    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    HeapSort(data);
 
     std::vector<int> sort_data = {3, 11, 12, 22, 25, 34, 49, 64, 73, 90};
     if (data != sort_data)
