@@ -1,0 +1,5 @@
+
+void StandartCpp17()
+{
+    
+}

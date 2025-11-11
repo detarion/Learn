@@ -16,7 +16,7 @@
 
 int global_value;
 
-void Containers()
+void Data()
 {
     int value;
     static int static_value;

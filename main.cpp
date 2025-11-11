@@ -1,19 +1,27 @@
 #include <locale>
 #include <iostream>
 
-#include "container.h"
+#include "standart.h"
+#include "exception.h"
+#include "thread.h"
+#include "data.h"
 #include "algorithm.h"
 #include "OOP.h"
-#include "exception.h"
+#include "OOD.h"
 
 int main()
 {
     std::setlocale(LC_ALL, "");
 
-    // Containers();
-    // Algorithms();
-    // OOP();
+    // StandartCpp17();
     // Exceptions();
+    // Threads();
+
+    // Data();
+    // Algorithms();
+    
+    // OOP();
+    // OOD();
 
     return 0;
 }
