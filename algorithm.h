@@ -5,7 +5,7 @@
 #include <math.h>
 #include <numeric>
 
-void BasicAlgorithm()
+void STL_Algorithm()
 {
     std::string text {"1234"};
     std::vector<int> data {1, 2, 3, 4};
@@ -322,12 +322,26 @@ void SortAlgorithm()
 
 void TaskAlgorithm()
 {
-
+    // PrefixSum(); // Префиксные суммы
+    // TwoPointers(); // Два указателя
+    // SlidingWindow(); // Скользящее окно
+    // FastAndSlowPointers(); // Быстрый и медленный указатель
+    // ReversList(); // Разворот связного списка на месте
+    // MonotonicStack(); // Монотонный стек
+    // TopElements(); // Топ K элементов
+    // OverlappingIntervals(); // Перекрывающиеся интервалы
+    // ModifiedBinarySearch(); // Модифицированный бинарный поиск
+    // BinaryTreeTraversal(); // Обход бинарного дерева
+    // DepthFirstSearch(); // DFS поиск в глубину
+    // BreadthFirstSearch(); // BFS поиск в ширину
+    // MatrixTraversal(); // Обход матрицы
+    // BackTracking(); // Возврат
+    // DynamicProgramming(); // Динамическое программирование
 }
 
 void Algorithms()
 {
-    BasicAlgorithm();
+    STL_Algorithm();
     SortAlgorithm();
     TaskAlgorithm();
 }
