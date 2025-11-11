@@ -210,6 +210,36 @@ void MergeSort(std::vector<int>& data)
     std::merge(left_data.begin(), left_data.end(), right_data.begin(), right_data.end(), std::back_inserter(data));
 }
 
+size_t SortSectionQuickSort(std::vector<int>& data, size_t left, size_t right)
+{
+    auto pivot = data[right];
+    auto i = left - 1;
+
+    for (size_t j = left; j <= right - 1; j++)
+    {
+        if (data[j] <= pivot)
+        {
+            i++;
+            std::swap(data[i], data[j]);
+        }
+    }
+    
+    std::swap(data[i+1], data[right]);
+    
+    return (i+1);
+}
+
+void QuickSort(std::vector<int>& data, size_t left, size_t right)
+{
+    if (left < right)
+    {
+        auto pivot = SortSectionQuickSort(data, left, right);
+
+        QuickSort(data, left, pivot - 1);
+        QuickSort(data, pivot + 1, right);
+    }
+}
+
 void HeapSort(std::vector<int>& data)
 {
     std::make_heap(data.begin(), data.end());
@@ -235,6 +265,9 @@ void SortAlgorithm()
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     HeapSort(data);
+
+    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    QuickSort(data, 0, data.size() - 1);
 
     std::vector<int> sort_data = {3, 11, 12, 22, 25, 34, 49, 64, 73, 90};
     if (data != sort_data)
