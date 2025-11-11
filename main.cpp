@@ -8,6 +8,7 @@
 #include "algorithm.h"
 #include "OOP.h"
 #include "OOD.h"
+#include "design_pattern.h"
 
 int main()
 {
@@ -22,6 +23,7 @@ int main()
     
     // OOP();
     // OOD();
+    // DesignPatterns();
 
     return 0;
 }
