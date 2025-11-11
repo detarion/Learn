@@ -88,20 +88,6 @@ void BubbleSort(std::vector<int>& data)
 {
     for (size_t i = 0; i < data.size(); i++)
     {
-        for (size_t j = 0; j < data.size() - 1 - i; j++)
-        {
-            if (data[j] > data[j+1])
-            {
-                std::swap(data[j], data[j+1]);
-            }            
-        }
-    }
-}
-
-void BubbleOptSort(std::vector<int>& data)
-{
-    for (size_t i = 0; i < data.size(); i++)
-    {
         bool is_sort {true};
 
         for (size_t j = 0; j < data.size() - 1 - i; j++)
@@ -119,28 +105,6 @@ void BubbleOptSort(std::vector<int>& data)
 }
 
 void ShakerSort(std::vector<int>& data)
-{
-    for (size_t i = 0; i < data.size(); i++)
-    {
-        for (size_t j = 0; j < data.size() - 1; j++)
-        {
-            if (data[j] > data[j+1])
-            {
-                std::swap(data[j], data[j+1]);
-            }
-        }
-
-        for (size_t j = data.size() - 1; j > 0; j--)
-        {
-            if (data[j-1] > data[j])
-            {
-                std::swap(data[j-1], data[j]);
-            }
-        }
-    }    
-}
-
-void ShakerOptSort(std::vector<int>& data)
 {
     size_t begin_index{0};
     size_t end_index{data.size()};
@@ -182,24 +146,6 @@ void ShakerOptSort(std::vector<int>& data)
 
 void SelectionSort(std::vector<int>& data)
 {
-    for (size_t i = 0; i < data.size(); i++)
-    {
-        size_t min_index = i;
-
-        for (size_t j = i; j < data.size(); j++)
-        {
-            if (data[j] < data[min_index])
-            {
-                min_index = j;
-            }
-        }
-
-        std::swap(data[i], data[min_index]);
-    }
-}
-
-void SelectionOptSort(std::vector<int>& data)
-{
     size_t begin_index {0};
     size_t end_index {data.size() - 1};
 
@@ -231,21 +177,6 @@ void SelectionOptSort(std::vector<int>& data)
 }
 
 void InsertionSort(std::vector<int>& data)
-{
-    for (size_t i = 0; i < data.size(); i++)
-    {
-        for (size_t j = 0; j < i; j++)
-        {
-            if(data[i] > data[j])
-            {
-                data.insert(data.begin() + j, data[i]);
-                data.erase(data.begin() + i);
-            }
-        }
-    }
-}
-
-void InsertionOptSort(std::vector<int>& data)
 {
     for (size_t i = 1; i < data.size(); i++)
     {
@@ -289,28 +220,18 @@ void SortAlgorithm()
 {
     std::vector<int> data {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     BubbleSort(data);
-    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
-    BubbleOptSort(data);
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     ShakerSort(data);
-    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
-    ShakerOptSort(data);
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     SelectionSort(data);
-    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
-    SelectionOptSort(data);
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     InsertionSort(data);
-    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
-    InsertionOptSort(data);
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     MergeSort(data);
-    //data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
-    //MergeOptSort(data);
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     HeapSort(data);
