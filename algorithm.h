@@ -229,6 +229,12 @@ size_t SortSectionQuickSort(std::vector<int>& data, size_t left, size_t right)
     return (i+1);
 }
 
+void HeapSort(std::vector<int>& data)
+{
+    std::make_heap(data.begin(), data.end());
+    std::sort_heap(data.begin(), data.end());
+}
+
 void QuickSort(std::vector<int>& data, size_t left, size_t right)
 {
     if (left < right)
@@ -240,10 +246,27 @@ void QuickSort(std::vector<int>& data, size_t left, size_t right)
     }
 }
 
-void HeapSort(std::vector<int>& data)
+void CountingSort(std::vector<int>& data)
 {
-    std::make_heap(data.begin(), data.end());
-    std::sort_heap(data.begin(), data.end());
+    auto max_it = std::max_element(data.begin(), data.end());
+
+    std::vector<int> sort_data(*max_it + 1);
+
+    for (auto value : data)
+    {
+        sort_data[value] = ++sort_data[value];
+    }
+    
+    size_t index {0};
+    for (size_t i = 0; i < *max_it; i++)
+    {
+        while (sort_data[i] > 0)
+        {
+            data[index] = i;
+            index++;
+            sort_data[i]--;
+        }        
+    }
 }
 
 void SortAlgorithm()
@@ -268,6 +291,10 @@ void SortAlgorithm()
 
     data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
     QuickSort(data, 0, data.size() - 1);
+
+    // специальные сортировки
+    data = {64, 34, 25, 12, 73, 49, 3, 22, 11, 90};
+    CountingSort(data);
 
     std::vector<int> sort_data = {3, 11, 12, 22, 25, 34, 49, 64, 73, 90};
     if (data != sort_data)
