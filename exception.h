@@ -22,15 +22,17 @@ void Exception2()
 {
     class Exception :std::exception
     {
+        std::string message;
+
         public:
-            Exception(std::string& message)
+            Exception(std::string& message_) : message(message_)
             {};
 
-            Exception(std::string&& message)
+            Exception(std::string&& message_) : message(message_)
             {};
 
             const char* what() const noexcept override
-            { return "bad optional access"; }
+            { return message.c_str(); }
     };
 
     class A
@@ -143,4 +145,3 @@ void Exceptions()
     Exception2();
     Exception3();
 }
-
