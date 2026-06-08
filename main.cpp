@@ -25,5 +25,10 @@ int main()
     // OOD();
     // DesignPatterns();
 
+    // Linux();
+    // NetworkOSI();
+    // Git();
+    // CMake();
+
     return 0;
 }

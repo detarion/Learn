@@ -1,4 +1,28 @@
+
 void OOP1()
+{
+    // Инкапсуляция
+    // Наследование
+    // Полиморфизм
+    // Абстракция
+
+    struct A
+    {
+        // оптимизация Выравнивание от большего к меньшему
+        double b;    // 8 байт
+        int c;       // 4 байта + 4 байта padding (для выравнивания всей структуры по 8 байт)
+        char a;      // 1 байт + 7 байт padding
+
+        void Func1()
+        {
+            int temp = this->a;
+        }
+    };
+
+    A a;
+}
+
+void OOP2()
 {
     struct A
     {
@@ -68,7 +92,7 @@ void OOP1()
         PropertyB propertyB_;
     };
 
-    A* pC = new C();
+    B* pC = new C();
     
     std::cout << "..." << std::endl;
 
@@ -88,7 +112,7 @@ void OOP1()
     // ~A()
 }
 
-void OOP2()
+void OOP3()
 {
     struct A
     {
@@ -177,8 +201,22 @@ void OOP2()
     // ~A()
 }
 
+void SmartPointer()
+{
+    // умные указатели
+    std::unique_ptr unique_ptr = std::make_unique<int>(10);
+    std::shared_ptr shared_ptr = std::make_shared<int>(10);
+    std::weak_ptr weak_ptr = shared_ptr;
+
+    if (unique_ptr)
+    {
+        shared_ptr = std::move(unique_ptr);
+    }
+}
+
 void OOP()
 {
-    OOP1();
     OOP2();
+    OOP3();
+    SmartPointer();
 }
